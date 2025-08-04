@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neutral-0: hsl(0, 0%, 100%);
+  --color-neutral-1: hsl(252, 6%, 83%);
+  --color-neutral-2: hsl(245, 15%, 58%);
+  --color-neutral-3: hsl(245, 19%, 35%);
+  --color-neutral-4: hsl(248, 70%, 10%);
+  --color-orange-1: hsl(7, 88%, 67%);
+  --color-orange-2: hsl(7, 71%, 60%);
+  --color-gradient-text-from: hsl(7, 86%, 67%);
+  --color-gradient-text-to: hsl(0, 0%, 100%);
+}
+
+@layer {
+  body {
+    @apply bg-cover pb-10 text-neutral-0 bg-no-repeat font-['Inconsolata'] min-h-screen w-screen overflow-x-hidden relative;
+    @apply bg-[url("../assets/images/background-desktop.png")] max-md:bg-[url("../assets/images/background-tablet.png")] max-sm:bg-[url("../assets/images/background-mobile.png")];
+  }
+  h1 {
+    @apply text-[45px] font-extrabold sm:text-3xl;
+  }
+  .label-input {
+    @apply text-neutral-0 cursor-pointer capitalize font-bold;
+  }
+  .input {
+    @apply border border-neutral-1 rounded-md;
+    @apply bg-neutral-3/30 text-neutral-0 px-2;
+    @apply max-w-[400px] w-[90vw] h-[40px];
+  }
+  .input-container {
+    @apply flex flex-col mx-auto gap-2 w-max mb-2;
+  }
+  .submit {
+    @apply text-neutral-4 font-[600] rounded-md;
+    @apply hover:bg-orange-1 cursor-pointer duration-300 bg-orange-2;
+    @apply max-w-[400px] h-[40px] mx-auto block w-[90vw];
+  }
+  .img-button {
+    @apply bg-neutral-3/70 text-neutral-0 px-2 py-[1px] rounded;
+  }
+  .error {
+    @apply gap-2 items-center *:text-orange-2 hidden;
+    &.active {
+      @apply flex;
+    }
+  }
+}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@50..200,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/output.css" />
+    <title>Frontend Mentor | Conference ticket generator</title>
+  </head>
+  <body>
+    <!-- back grounds -->
+    <img
+      src="assets/images/pattern-squiggly-line-bottom-desktop.svg"
+      class="absolute bottom-0 max-md:hidden"
+    />
+    <img
+      src="assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg"
+      class="absolute bottom-0 md:hidden"
+    />
+    <img
+      src="assets/images/pattern-squiggly-line-top.svg"
+      class="absolute right-0"
+    />
+    <img src="assets/images/pattern-lines.svg" class="absolute h-screen" />
+    <!-- logo -->
+    <img src="assets/images/logo-full.svg" class="mx-auto py-5 block" />
+    <!-- Form starts -->
+    <main class="w-screen h-max z-10 relative" id="form">
+      <header>
+        <h1
+          class="mx-auto w-[90vw] max-w-[650px] leading-none text-center my-6"
+        >
+          Your Journey to Coding Conf 2025 Starts Here!
+        </h1>
+        <p class="text-center text-neutral-2 mb-10">
+          Secure your spot at next year's biggest coding conference.
+        </p>
+      </header>
+      <!-- avatar input -->
+      <div class="input-container">
+        <label for="avatar" class="label-input">Upload Avatar</label>
+        <div class="input border-dashed !h-max relative cursor-pointer">
+          <div class="w-full h-max py-2" id="emptyFileInput">
+            <img
+              src="assets/images/icon-upload.svg"
+              class="mx-auto block w-10 h-10 rounded-xl py-2 bg-neutral-2/40"
+            />
+            <p class="text-neutral-2 text-center">
+              Drag and drop or click to upload
+            </p>
+          </div>
+          <div id="fullFileInput" class="w-full h-max py-2 hidden">
+            <img
+              src="assets/images/icon-upload.svg"
+              class="mx-auto block w-10 rounded-xl bg-neutral-2/40"
+            />
+            <div class="flex gap-2 items-center justify-center text-sm mt-2">
+              <button class="img-button underline" id="removeImg">
+                remove image
+              </button>
+              <button class="img-button" id="changeImg">change image</button>
+            </div>
+          </div>
+          <input
+            type="file"
+            id="avatar"
+            class="opacity-0 cursor-pointer w-full h-full absolute top-0 left-0 rounded-md"
+          />
+        </div>
+        <div class="flex gap-2 items-center max-w-[90vw]" id="infoP">
+          <img src="assets/images/icon-info.svg" alt="" />
+          <p class="text-neutral-2 text-sm">
+            Upload your photo (JPG or PNG, max size: 500KB).
+          </p>
+        </div>
+        <div class="error" id="avatarError">
+          <img src="assets/images/icon-error.svg" alt="" />
+          <p class="text-neutral-2 text-sm">enter or grag and drop a avatar</p>
+        </div>
+      </div>
+      <!-- full name input -->
+      <div class="input-container">
+        <label for="fullName" class="label-input">full name</label>
+        <input
+          type="text"
+          id="fullName"
+          class="input"
+          placeholder="full name"
+        />
+        <div class="error" id="fullNameError">
+          <img src="assets/images/icon-error.svg" alt="" />
+          <p class="text-neutral-2 text-sm">full name are required</p>
+        </div>
+      </div>
+      <!-- email input -->
+      <div class="input-container">
+        <label for="email" class="label-input">email address</label>
+        <input
+          type="email"
+          id="email"
+          class="input"
+          placeholder="example@gmail.com"
+        />
+        <div class="error" id="emailError">
+          <img src="assets/images/icon-error.svg" alt="" />
+          <p class="text-neutral-2 text-sm">Enter a valid email</p>
+        </div>
+      </div>
+      <!-- github input -->
+      <div class="input-container">
+        <label for="github" class="label-input">github Username</label>
+        <input type="text" id="github" class="input" placeholder="@username" />
+      </div>
+      <button class="submit" id="submit">Generate My Ticket</button>
+    </main>
+    <main class="w-screen h-max z-10 relative hidden" id="ticket">
+      <header>
+        <h1
+          class="mx-auto max-w-[650px] w-[90vw] leading-none text-center my-6"
+        >
+          Congrats,
+          <span
+            id="fullNameLabel"
+            class="from-gradient-text-from to-gradient-text-to bg-gradient-to-r bg-clip-text text-transparent"
+            >samir</span
+          >
+          ! Your ticket is ready.
+        </h1>
+        <p
+          class="text-center text-neutral-1 mb-10 mx-auto w-[90vw] max-w-[430px]"
+        >
+          We've emailed your ticket to <br />
+          <span class="text-orange-1" id="emailLabel"
+            >samirbenabdallah@gmail.com</span
+          >
+          and will send updates in the run up to the event.
+        </p>
+      </header>
+      <div
+        class="p-3 bg-[url('../assets/images/pattern-ticket.svg')] flex flex-col relative bg-no-repeat bg-contain mx-auto mt-20 h-[189px] max-w-[400px] w-[90vw]"
+      >
+        <section class="flex gap-1">
+          <img src="assets/images/logo-mark.svg" class="h-8 mt-2" />
+          <div>
+            <h1>Coding Conf</h1>
+            <p class="text-sm text-neutral-1">Jan 31, 2025 / Austin, TX</p>
+          </div>
+        </section>
+        <section class="flex gap-1 mt-auto ">
+          <img src="" id="avatarLabel" alt="avatar" class="w-[50px] rounded-md" />
+          <div>
+            <h1 id="nameLabel" class="capitalize">samir</h1>
+            <div class="flex items-center">
+              <img src="assets/images/icon-github.svg" class="w-5" />
+              <p id="githubLabel"></p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script src="src/index.js"></script>
+  </body>
+</html>
